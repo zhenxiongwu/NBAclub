@@ -1,7 +1,10 @@
 package com.example.asus1.nbatest.activities;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -28,12 +31,42 @@ public class FunctionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i("zhenxiongwu","onCreate");
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_function);
 
         listView = (ListView) findViewById(R.id.listView);
         searchView = (SearchView) findViewById(R.id.search_view);
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                Log.i("zhenxiongwu","searchView onClose");
+                return false;
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Log.i("zhenxiongwu","on query text submit");
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Log.i("zhenxiongwu","on query text change");
+                return false;
+            }
+        });
+
+        searchView.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("zhenxiongwu","onSearchClick");
+            }
+        });
+
         button_search = (Button) findViewById(R.id.button_search);
         button_player = (ImageButton) findViewById(R.id.button_player);
         button_team = (ImageButton) findViewById(R.id.button_team);
@@ -57,5 +90,9 @@ public class FunctionActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.i("zhenxiongwu","onConfigurationChanged");
+    }
 }

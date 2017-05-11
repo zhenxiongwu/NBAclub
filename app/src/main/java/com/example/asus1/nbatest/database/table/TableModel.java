@@ -7,5 +7,5 @@ import java.util.Map;
  */
 
 public interface TableModel {
-    public Map<String ,Object> mapping();
+    Map<String ,Object> mapping();
 }

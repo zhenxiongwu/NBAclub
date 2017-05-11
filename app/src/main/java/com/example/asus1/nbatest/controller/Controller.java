@@ -21,7 +21,7 @@ public class Controller {
      * @return
      */
     public static List<Player> getDefaultPlayers(){
-        return Selector.getPlayers("2013-2014",20);
+        return Selector.getPlayersInSeason("2013-2014",20);
     }
 
 

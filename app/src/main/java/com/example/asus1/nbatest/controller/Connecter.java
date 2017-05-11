@@ -16,6 +16,7 @@ import java.util.List;
 public class Connecter {
 
     public static ListAdapter playerAdapter(Context context,List<Player> playerList){
+
         return null;
     }
 

@@ -35,6 +35,7 @@ public class Player extends DataSupport implements TableModel{
     private int points;
     private int team_id;
 
+
     public int getId() {
         return id;
     }
@@ -107,20 +108,25 @@ public class Player extends DataSupport implements TableModel{
         this.team_id = team_id;
     }
 
+
+    private Map<String , Object> playerMap;
     /**
      * mapping the player information
      * @return
      */
     @Override
     public Map<String, Object> mapping() {
-        Map<String,Object> mappingPlayer = new HashMap<>();
-        mappingPlayer.put(Player.NAME,name);
-        mappingPlayer.put(Player.AGE,age);
-        mappingPlayer.put(Player.GAMES,games);
-        mappingPlayer.put(Player.LEAGUE,league);
-        mappingPlayer.put(Player.POINTS,points);
-        mappingPlayer.put(Player.SEASON,season);
-        mappingPlayer.put(Player.TEAMABBER,teamAbbr);
-        return mappingPlayer;
+
+        if(playerMap == null){
+            playerMap = new HashMap<>();
+            playerMap.put(Player.NAME,name);
+            playerMap.put(Player.AGE,age);
+            playerMap.put(Player.GAMES,games);
+            playerMap.put(Player.LEAGUE,league);
+            playerMap.put(Player.POINTS,points);
+            playerMap.put(Player.SEASON,season);
+            playerMap.put(Player.TEAMABBER,teamAbbr);
+        }
+        return playerMap;
     }
 }
