@@ -1,12 +1,13 @@
 package com.example.asus1.nbatest.database.table.model;
 
-import com.example.asus1.nbatest.database.table.TableModel;
+import android.os.Bundle;
+
+import com.example.asus1.nbatest.database.table.EntityModel;
 
 import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by ASUS1 on 2017/4/14.
@@ -15,7 +16,22 @@ import java.util.Map;
  * championships" and a Arena object
  */
 
-public class Team extends DataSupport implements TableModel{
+public class Team extends DataSupport implements EntityModel {
+
+    private static String ID = "id";
+    private static String NAME = "name";
+    private static String LEAGEU = "league";
+    private static String SEASON = "season";
+    private static String COACHES = "coaches";
+    private static String FROM_YEAR = "fromYear";
+    private static String TO_YEAR = "toYear";
+    private static String YEARS = "years";
+    private static String GAMES = "games";
+    private static String WINS = "wins";
+    private static String LOSES = "loses";
+    private static String CHAMPIONSHIPS = "championships";
+    private static String ARENA_ID = "arenaId";
+
 
     private int id;
     private String name;
@@ -144,12 +160,34 @@ public class Team extends DataSupport implements TableModel{
         this.playerList = playerList;
     }
 
+
+
+    private Bundle bundle;
+
     /**
      * mapping the team information
-     * @return
+     * put the attributes of the team into the bundle
+     * @return Bundle
      */
     @Override
-    public Map<String, Object> mapping() {
-        return null;
+    public Bundle getBundle() {
+        if(bundle == null){
+            bundle = new Bundle();
+            bundle.putInt(Team.ID, id);
+            bundle.putString(Team.NAME,name);
+            bundle.putString(Team.LEAGEU,league);
+            bundle.putString(Team.SEASON,season);
+            bundle.putString(Team.COACHES,coaches);
+            bundle.putInt(Team.FROM_YEAR, fromYear);
+            bundle.putInt(Team.TO_YEAR, toYear);
+            bundle.putInt(Team.YEARS, years);
+            bundle.putInt(Team.GAMES, games);
+            bundle.putInt(Team.WINS, wins);
+            bundle.putInt(Team.LOSES, loses);
+            bundle.putInt(Team.CHAMPIONSHIPS,championships);
+            bundle.putInt(Team.ARENA_ID, arena_id);
+        }
+        return bundle;
     }
+
 }

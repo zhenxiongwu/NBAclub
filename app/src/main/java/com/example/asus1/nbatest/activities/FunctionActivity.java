@@ -10,11 +10,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.SimpleAdapter;
 
 import com.example.asus1.nbatest.R;
 import com.example.asus1.nbatest.controller.Controller;
-import com.example.asus1.nbatest.database.table.model.Player;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -76,7 +74,7 @@ public class FunctionActivity extends AppCompatActivity {
         ArrayList<Map<String, Object>> mappingPlayerList =
                 Controller.getMappingPlayerList(Controller.getDefaultPlayers());
 
-        SimpleAdapter mSimpleAdapter = new SimpleAdapter(this, mappingPlayerList,
+/*        SimpleAdapter mSimpleAdapter = new SimpleAdapter(this, mappingPlayerList,
                 R.layout.player_list_item,
                 new String[]{Player.NAME, Player.SEASON, Player.AGE, Player.TEAMABBER,
                         Player.LEAGUE, Player.GAMES, Player.POINTS},
@@ -86,7 +84,7 @@ public class FunctionActivity extends AppCompatActivity {
                         R.id.list_item_textView_points}
         );
 
-        listView.setAdapter(mSimpleAdapter);//为ListView绑定适配器
+        listView.setAdapter(mSimpleAdapter);//为ListView绑定适配器*/
 
     }
 

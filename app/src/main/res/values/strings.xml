@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">NBA懂球帝</string>
     <string name="search">Search</string>
+
+    <string-array name="tab_title">
+        <item>球员</item>
+        <item>球队</item>
+        <item>教练</item>
+        <item>球场</item>
+    </string-array>
 </resources>

@@ -8,17 +8,7 @@
     tools:context="com.example.asus1.nbatest.activities.FunctionActivity"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:id="@+id/imageView2"
-            android:layout_height="wrap_content"
-            android:background="@drawable/title6" />
-    </LinearLayout>
+    <include layout="@layout/title" />
 
     <LinearLayout
         android:orientation="vertical"

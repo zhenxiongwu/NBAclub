@@ -20,12 +20,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="球员"
+                android:text="主场"
                 android:textColor="@android:color/background_light"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/player_list_item_textView_name"
+                android:id="@+id/list_item_textView_arena"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -46,16 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:layout_weight="1"
-                android:text="赛季"
-                android:textColor="@android:color/background_light" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:layout_weight="1"
-                android:text="年龄"
+                android:text="起止年份"
                 android:textColor="@android:color/background_light" />
 
             <TextView
@@ -73,7 +64,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/player_list_item_textView_season"
+                android:id="@+id/list_item_textView_arenaStart_end"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -82,15 +73,7 @@
                 android:textColor="@android:color/background_light" />
 
             <TextView
-                android:id="@+id/player_list_item_textView_age"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView"
-                android:textColor="@android:color/background_light" />
-
-            <TextView
-                android:id="@+id/player_list_item_textView_teamAbbr"
+                android:id="@+id/list_item_textView_arenaTeam"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -109,15 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:layout_weight="1"
-                android:text="联盟"
-                android:textColor="@android:color/background_light" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="出场"
+                android:text="地点"
                 android:textColor="@android:color/background_light" />
 
             <TextView
@@ -125,7 +100,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="得分"
+                android:text="容纳量"
                 android:textColor="@android:color/background_light" />
         </TableRow>
 
@@ -134,7 +109,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/player_list_item_textView_league"
+                android:id="@+id/list_item_textView_arenaLocation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -143,15 +118,7 @@
                 android:textColor="@android:color/background_light" />
 
             <TextView
-                android:id="@+id/player_list_item_textView_games"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView"
-                android:textColor="@android:color/background_light" />
-
-            <TextView
-                android:id="@+id/player_list_item_textView_points"
+                android:id="@+id/list_item_textView_arenaCapacity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
