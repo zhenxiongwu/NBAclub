@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.asus1.nbatest.R;
+import com.example.asus1.nbatest.controller.MasterController;
 import com.example.asus1.nbatest.database.util.DatabaseCreater;
 
 import java.io.IOException;
@@ -40,7 +42,9 @@ public class LaunchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        getSupportActionBar().hide();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setContentView(R.layout.activity_launch);
 
         END = false;
 
@@ -50,7 +54,7 @@ public class LaunchActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LaunchActivity.this, FunctionActivity.class);
+                Intent intent = new Intent(LaunchActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -71,6 +75,7 @@ public class LaunchActivity extends AppCompatActivity {
                 DatabaseCreater databaseCreater = new DatabaseCreater(LaunchActivity.this);
                 try {
                     databaseCreater.createDatabase();
+                    MasterController.initData();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

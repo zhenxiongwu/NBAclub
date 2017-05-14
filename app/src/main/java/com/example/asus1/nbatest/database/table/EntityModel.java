@@ -1,11 +1,11 @@
 package com.example.asus1.nbatest.database.table;
 
-import java.util.Map;
+import android.os.Bundle;
 
 /**
  * Created by ASUS1 on 2017/4/16.
  */
 
-public interface TableModel {
-    public Map<String ,Object> mapping();
+public interface EntityModel {
+    Bundle getBundle();
 }

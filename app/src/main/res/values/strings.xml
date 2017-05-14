@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">NBA懂球帝</string>
     <string name="search">Search</string>
+
+    <string name="team_win_rate">球队胜率</string>
+    <string name="player_games">出场次数</string>
+    <string name="player_points">得分情况</string>
+
+    <string name="check_player_games_analysis">统计球员出场次数</string>
+    <string name="check_player_total_points_analysis">统计球员总得分</string>
+    <string name="check_player_average_points_analysis">统计球员平均得分</string>
+
+
+    <string-array name="tab_title">
+        <item>球员</item>
+        <item>球队</item>
+        <item>教练</item>
+        <item>球场</item>
+    </string-array>
 </resources>

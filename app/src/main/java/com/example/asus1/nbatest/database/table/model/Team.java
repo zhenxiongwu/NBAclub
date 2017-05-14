@@ -1,12 +1,13 @@
 package com.example.asus1.nbatest.database.table.model;
 
-import com.example.asus1.nbatest.database.table.TableModel;
+import android.os.Bundle;
+
+import com.example.asus1.nbatest.database.table.EntityModel;
 
 import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by ASUS1 on 2017/4/14.
@@ -15,7 +16,23 @@ import java.util.Map;
  * championships" and a Arena object
  */
 
-public class Team extends DataSupport implements TableModel{
+public class Team extends DataSupport implements EntityModel {
+
+    public static String ID = "id";
+    public static String NAME = "name";
+    public static String LEAGEU = "league";
+    public static String SEASON = "season";
+    public static String COACHES = "coaches";
+    public static String FROM_YEAR = "fromYear";
+    public static String TO_YEAR = "toYear";
+    public static String YEARS = "years";
+    public static String GAMES = "games";
+    public static String WINS = "wins";
+    public static String LOSES = "loses";
+    public static String VICTORY = "victory";
+    public static String CHAMPIONSHIPS = "championships";
+    public static String ARENA_ID = "arenaId";
+
 
     private int id;
     private String name;
@@ -28,6 +45,7 @@ public class Team extends DataSupport implements TableModel{
     private int games;
     private int wins;
     private int loses;
+    private float victory;
     private int championships;
     private int arena_id;
     private List<Player> playerList = new ArrayList<>();
@@ -120,6 +138,10 @@ public class Team extends DataSupport implements TableModel{
         this.loses = loses;
     }
 
+    public float getVictory(){
+        return (float)(Math.round(((float)wins)/games*10))/10;
+    }
+
     public int getChampionships() {
         return championships;
     }
@@ -144,12 +166,35 @@ public class Team extends DataSupport implements TableModel{
         this.playerList = playerList;
     }
 
+
+
+    private Bundle bundle;
+
     /**
      * mapping the team information
-     * @return
+     * put the attributes of the team into the bundle
+     * @return Bundle
      */
     @Override
-    public Map<String, Object> mapping() {
-        return null;
+    public Bundle getBundle() {
+        if(bundle == null){
+            bundle = new Bundle();
+            bundle.putInt(Team.ID, id);
+            bundle.putString(Team.NAME,name);
+            bundle.putString(Team.LEAGEU,league);
+            bundle.putString(Team.SEASON,season);
+            bundle.putString(Team.COACHES,coaches);
+            bundle.putInt(Team.FROM_YEAR, fromYear);
+            bundle.putInt(Team.TO_YEAR, toYear);
+            bundle.putInt(Team.YEARS, years);
+            bundle.putInt(Team.GAMES, games);
+            bundle.putInt(Team.WINS, wins);
+            bundle.putInt(Team.LOSES, loses);
+            bundle.putFloat(Team.VICTORY,getVictory());
+            bundle.putInt(Team.CHAMPIONSHIPS,championships);
+            bundle.putInt(Team.ARENA_ID, arena_id);
+        }
+        return bundle;
     }
+
 }

@@ -1,12 +1,13 @@
 package com.example.asus1.nbatest.database.table.model;
 
-import com.example.asus1.nbatest.database.table.TableModel;
+import android.os.Bundle;
+
+import com.example.asus1.nbatest.database.table.EntityModel;
 
 import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by ASUS1 on 2017/4/14.
@@ -14,8 +15,15 @@ import java.util.Map;
  * The column of the table Player is "name,team,startToEnd,location,capacity"
  */
 
-public class Arena extends DataSupport implements TableModel{
-//    ArenaTeam,ArenaStart-End,Arena,ArenaLocation,ArenaCapacity
+public class Arena extends DataSupport implements EntityModel {
+
+    public static String ID = "id";
+    public static String NAME = "name";
+    public static String TEAM = "team";
+    public static String START_TO_END = "start2end";
+    public static String LOCATION = "location";
+    public static String CAPACITY = "capacity";
+
     private int id;
     private String name;
     private String team;
@@ -80,12 +88,26 @@ public class Arena extends DataSupport implements TableModel{
         this.teamList = teamList;
     }
 
+
+    private Bundle bundle;
+
     /**
      * mapping the arena information
+     * put the attributes of the arena into the bundle
+     *
      * @return
      */
     @Override
-    public Map<String, Object> mapping() {
-        return null;
+    public Bundle getBundle() {
+        if (bundle == null) {
+            bundle = new Bundle();
+            bundle.putInt(Arena.ID, id);
+            bundle.putString(Arena.NAME, name);
+            bundle.putString(Arena.TEAM, team);
+            bundle.putString(Arena.START_TO_END, startToEnd);
+            bundle.putString(Arena.LOCATION, location);
+            bundle.putInt(Arena.CAPACITY, capacity);
+        }
+        return bundle;
     }
 }

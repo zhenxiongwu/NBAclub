@@ -1,11 +1,10 @@
 package com.example.asus1.nbatest.database.table.model;
 
-import com.example.asus1.nbatest.database.table.TableModel;
+import android.os.Bundle;
+
+import com.example.asus1.nbatest.database.table.EntityModel;
 
 import org.litepal.crud.DataSupport;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by ASUS1 on 2017/4/5.
@@ -13,7 +12,7 @@ import java.util.Map;
  * The column of the table Player is "name,season,age,teamAbbr,Lg,G,PTS" and a Team object
  */
 
-public class Player extends DataSupport implements TableModel{
+public class Player extends DataSupport implements EntityModel {
 
     public static String ID = "id";
     public static String NAME = "name";
@@ -23,6 +22,7 @@ public class Player extends DataSupport implements TableModel{
     public static String LEAGUE = "league";
     public static String GAMES = "games";
     public static String POINTS = "points";
+    public static String AVERAGE = "average";
     public static String TEAM_ID = "team_id";
 
     private int id;
@@ -33,7 +33,9 @@ public class Player extends DataSupport implements TableModel{
     private String league;
     private int games;
     private int points;
+    private int average;
     private int team_id;
+
 
     public int getId() {
         return id;
@@ -99,6 +101,10 @@ public class Player extends DataSupport implements TableModel{
         this.points = points;
     }
 
+    public float getAverage(){
+        return (float)(Math.round(((float)points)/games*10))/10;
+    }
+
     public int getTeam_id() {
         return team_id;
     }
@@ -107,20 +113,29 @@ public class Player extends DataSupport implements TableModel{
         this.team_id = team_id;
     }
 
+
+    private Bundle bundle;
     /**
      * mapping the player information
-     * @return
+     * put the attributes of the player into the bundle
+     * @return Bundle
      */
+
     @Override
-    public Map<String, Object> mapping() {
-        Map<String,Object> mappingPlayer = new HashMap<>();
-        mappingPlayer.put(Player.NAME,name);
-        mappingPlayer.put(Player.AGE,age);
-        mappingPlayer.put(Player.GAMES,games);
-        mappingPlayer.put(Player.LEAGUE,league);
-        mappingPlayer.put(Player.POINTS,points);
-        mappingPlayer.put(Player.SEASON,season);
-        mappingPlayer.put(Player.TEAMABBER,teamAbbr);
-        return mappingPlayer;
+    public Bundle getBundle() {
+        if(bundle == null){
+            bundle = new Bundle();
+            bundle.putInt(Player.ID, id);
+            bundle.putString(Player.NAME,name);
+            bundle.putInt(Player.AGE,age);
+            bundle.putFloat(Player.GAMES,games);
+            bundle.putString(Player.LEAGUE,league);
+            bundle.putFloat(Player.POINTS,points);
+            bundle.putFloat(Player.AVERAGE,getAverage());
+            bundle.putString(Player.SEASON,season);
+            bundle.putString(Player.TEAMABBER,teamAbbr);
+            bundle.putInt(Player.TEAM_ID,team_id);
+        }
+        return bundle;
     }
 }
