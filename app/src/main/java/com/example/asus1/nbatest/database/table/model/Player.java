@@ -22,6 +22,7 @@ public class Player extends DataSupport implements EntityModel {
     public static String LEAGUE = "league";
     public static String GAMES = "games";
     public static String POINTS = "points";
+    public static String AVERAGE = "average";
     public static String TEAM_ID = "team_id";
 
     private int id;
@@ -32,6 +33,7 @@ public class Player extends DataSupport implements EntityModel {
     private String league;
     private int games;
     private int points;
+    private int average;
     private int team_id;
 
 
@@ -99,6 +101,10 @@ public class Player extends DataSupport implements EntityModel {
         this.points = points;
     }
 
+    public float getAverage(){
+        return (float)(Math.round(((float)points)/games*10))/10;
+    }
+
     public int getTeam_id() {
         return team_id;
     }
@@ -122,9 +128,10 @@ public class Player extends DataSupport implements EntityModel {
             bundle.putInt(Player.ID, id);
             bundle.putString(Player.NAME,name);
             bundle.putInt(Player.AGE,age);
-            bundle.putInt(Player.GAMES,games);
+            bundle.putFloat(Player.GAMES,games);
             bundle.putString(Player.LEAGUE,league);
-            bundle.putInt(Player.POINTS,points);
+            bundle.putFloat(Player.POINTS,points);
+            bundle.putFloat(Player.AVERAGE,getAverage());
             bundle.putString(Player.SEASON,season);
             bundle.putString(Player.TEAMABBER,teamAbbr);
             bundle.putInt(Player.TEAM_ID,team_id);

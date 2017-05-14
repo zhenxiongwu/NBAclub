@@ -1,4 +1,4 @@
-package com.example.asus1.nbatest.adapter;
+package com.example.asus1.nbatest.adapter.pagerview;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

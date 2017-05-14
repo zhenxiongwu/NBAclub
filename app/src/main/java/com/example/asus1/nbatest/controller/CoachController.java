@@ -1,26 +1,42 @@
 package com.example.asus1.nbatest.controller;
 
-import com.example.asus1.nbatest.database.table.EntityModel;
+import android.content.Context;
 
-import java.util.List;
+import com.example.asus1.nbatest.database.table.EntityModel;
 
 /**
  * Created by ASUS1 on 2017/5/12.
  */
 
-public class CoachController implements DataController {
-    @Override
-    public List<EntityModel> initEntitySet() {
-        return null;
+public class CoachController extends DataController implements SearchController{
+
+
+    public CoachController(int itemLayoutID, String[] dateKeys, int[] textViewIDs) {
+        super(itemLayoutID, dateKeys, textViewIDs);
     }
 
     @Override
-    public List<EntityModel> loadMore() {
-        return null;
+    public void onItemClick(Context context, EntityModel entityModel, int position) {
+
     }
 
     @Override
-    public List<EntityModel> getSearchResult(String searchContent) {
-        return null;
+    public int loadMore() {
+        return 0;
+    }
+
+    @Override
+    public boolean startSearch(String content) {
+        return false;
+    }
+
+    @Override
+    public boolean isSearching() {
+        return false;
+    }
+
+    @Override
+    public void endSearch() {
+
     }
 }

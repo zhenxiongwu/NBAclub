@@ -1,9 +1,12 @@
 package com.example.asus1.nbatest.database.util;
 
+import android.database.sqlite.SQLiteDatabase;
+
 import com.example.asus1.nbatest.database.table.model.Arena;
 import com.example.asus1.nbatest.database.table.model.Player;
 import com.example.asus1.nbatest.database.table.model.Team;
 
+import org.litepal.LitePal;
 import org.litepal.crud.DataSupport;
 
 import java.util.List;
@@ -16,19 +19,62 @@ import java.util.List;
 
 public class Selector {
 
-    public static List<Player> fuzzySelectPlayers(String regex){
-        return DataSupport.where("name LIKE ? OR name LIKE ?",regex+" %","% "+regex).find(Player.class);
+    private static SQLiteDatabase database = LitePal.getDatabase();
+
+    private static String[] fuzzySlelectStrategy(String regex){
+        return new String[]{
+                "name = ? OR name LIKE ? OR name LIKE ? OR name LIKE ?",
+                regex,regex+" %","% "+regex, "% "+regex+" %"
+        };
     }
 
+    public static List<Player> fuzzySelectPlayers(String regex,int range, int offset){
+
+        return selectPlayersInOrder(range,offset,fuzzySlelectStrategy(regex));
+    }
+
+    public static List<Team> fuzzySelectTeams(String regex, int range, int offset){
+        return selectTeamsInOrder(range, offset, fuzzySlelectStrategy(regex));
+    }
+
+
+    public static List<Arena> fuzzySelectArenas(String regex, int range, int offset){
+        return selectArenasInOrder(range, offset, fuzzySlelectStrategy(regex));
+    }
+
+
+    public static List<Player> selectPlayersInOrder(int range, int offset, String... condition){
+        return DataSupport.where(condition).order("season desc , points desc").limit(range)
+                .offset(offset).find(Player.class);
+    }
+
+    public static List<Team> selectTeamsInOrder(int range, int offset, String... condition){
+        return DataSupport.where(condition).order("season desc , "+Team.CHAMPIONSHIPS+" desc")
+                .limit(range).offset(offset).find(Team.class);
+    }
+
+    public static List<Arena> selectArenasInOrder(int range, int offset, String... condition){
+        return DataSupport.where(condition).order(Arena.CAPACITY+" desc")
+                .limit(range).offset(offset).find(Arena.class);
+    }
+
+
+
     public static List<Player> selectPlayers(String... conditions) {
+        if(conditions==null)
+            return DataSupport.findAll(Player.class);
         return DataSupport.where(conditions).find(Player.class);
     }
 
     public static List<Team> selectTeams(String... conditions) {
+        if(conditions==null)
+            return DataSupport.findAll(Team.class);
         return DataSupport.where(conditions).find(Team.class);
     }
 
     public static List<Arena> selectArenas(String... conditions) {
+        if(conditions == null)
+            return DataSupport.findAll(Arena.class);
         return DataSupport.where(conditions).find(Arena.class);
     }
 
@@ -86,10 +132,14 @@ public class Selector {
     }
 
 
+
+
     public static List<Player> getPlayersInSeason(String season, int rank) {
-        String[] conditions = {"season=?", season};
-        List<Player> playerList = DataSupport.where(conditions).order(Player.POINTS + " desc").find(Player.class);
-        return playerList.subList(0, rank);
+
+        String[] conditions = {"season = ?", season};
+        List<Player> playerList = DataSupport.where(conditions).order(Player.POINTS + " desc")
+                .limit(rank).find(Player.class);
+        return playerList;
     }
 
 

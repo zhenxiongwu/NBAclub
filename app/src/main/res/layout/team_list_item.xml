@@ -20,19 +20,21 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="主场"
+                android:text="球队"
                 android:textColor="@color/text_color_normal"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/arena_list_item_textView_name"
+                android:id="@+id/team_list_item_textView_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
                 android:layout_weight="3"
                 android:gravity="center_horizontal"
                 android:text="TextView"
                 android:textColor="@color/text_color_normal"
                 android:textSize="18sp" />
+
         </TableRow>
 
         <TableRow
@@ -47,7 +49,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:layout_weight="1"
-                android:text="起止年份"
+                android:text="始于"
+                android:textColor="@color/text_color_normal" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="终于"
+                android:textColor="@color/text_color_normal" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:text="总年数"
                 android:textColor="@color/text_color_normal" />
 
             <TextView
@@ -55,7 +74,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="球队"
+                android:text="联盟"
                 android:textColor="@color/text_color_normal" />
 
         </TableRow>
@@ -65,7 +84,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/arena_list_item_textView_start2end"
+                android:id="@+id/team_list_item_textview_from"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -74,7 +93,23 @@
                 android:textColor="@color/text_color_normal" />
 
             <TextView
-                android:id="@+id/arena_list_item_textView_team"
+                android:id="@+id/team_list_item_textView_to"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textColor="@color/text_color_normal" />
+
+            <TextView
+                android:id="@+id/team_list_item_textView_years"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textColor="@color/text_color_normal" />
+
+            <TextView
+                android:id="@+id/team_list_item_textView_league"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -93,7 +128,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:layout_weight="1"
-                android:text="地点"
+                android:text="赢场数"
+                android:textColor="@color/text_color_normal" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="输场数"
+                android:textColor="@color/text_color_normal" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="总参赛数"
                 android:textColor="@color/text_color_normal" />
 
             <TextView
@@ -101,7 +152,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="容纳量"
+                android:text="冠军数"
                 android:textColor="@color/text_color_normal" />
         </TableRow>
 
@@ -110,7 +161,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/arena_list_item_textView_location"
+                android:id="@+id/team_list_item_textView_win"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -119,7 +170,23 @@
                 android:textColor="@color/text_color_normal" />
 
             <TextView
-                android:id="@+id/arena_list_item_textView_capacity"
+                android:id="@+id/team_list_item_textView_lose"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textColor="@color/text_color_normal" />
+
+            <TextView
+                android:id="@+id/team_list_item_textView_games"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textColor="@color/text_color_normal" />
+
+            <TextView
+                android:id="@+id/team_list_item_textView_champ"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

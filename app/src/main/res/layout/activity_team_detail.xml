@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.asus1.nbatest.activities.TeamDetailActivity">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/team_detail_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/title6"
+                app:layout_scrollFlags="scroll|enterAlways|snap">
+
+            </android.support.v7.widget.Toolbar>
+
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="球队"
+                            android:textColor="@color/text_color_normal"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/team_detail_textView_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="2"
+                            android:gravity="right"
+                            android:text="TextView"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="25sp" />
+                    </TableRow>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#3c979595"
+                        app:layout_scrollFlags="scroll|enterAlways|snap" />
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:paddingBottom="4dp"
+                        android:paddingTop="4dp"
+                        app:layout_scrollFlags="scroll|enterAlways|snap">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:text="联盟"
+                            android:textColor="@color/text_color_normal" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="始于"
+                            android:textColor="@color/text_color_normal" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="至"
+                            android:textColor="@color/text_color_normal" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="总年份"
+                            android:textColor="@color/text_color_normal" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="2dp"
+                        android:layout_weight="1"
+                        android:paddingBottom="4dp"
+                        android:paddingTop="4dp"
+                        app:layout_scrollFlags="scroll|enterAlways|snap">
+
+                        <TextView
+                            android:id="@+id/team_detail_textView_league"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_color_normal" />
+
+                        <TextView
+                            android:id="@+id/team_detail_textView_from"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_color_normal" />
+
+                        <TextView
+                            android:id="@+id/team_detail_textView_to"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_color_normal" />
+
+                        <TextView
+                            android:id="@+id/team_detail_textView_years"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_color_normal" />
+
+                    </TableRow>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#3c979595" />
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingBottom="4dp"
+                        android:paddingTop="4dp"
+                        app:layout_scrollFlags="scroll|enterAlways|snap">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:text="总场数"
+                            android:textColor="@color/text_color_normal" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="赢场"
+                            android:textColor="@color/text_color_normal" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="输场"
+                            android:textColor="@color/text_color_normal" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="总冠军"
+                            android:textColor="@color/text_color_normal" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingBottom="4dp"
+                        android:paddingTop="4dp"
+                        app:layout_scrollFlags="scroll|enterAlways|snap">
+
+                        <TextView
+                            android:id="@+id/team_detail_textView_games"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_color_normal" />
+
+                        <TextView
+                            android:id="@+id/team_detail_textView_wins"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_color_normal" />
+
+                        <TextView
+                            android:id="@+id/team_detail_textView_loses"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_color_normal" />
+
+                        <TextView
+                            android:id="@+id/team_detail_textView_champ"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_color_normal" />
+
+                    </TableRow>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="2dp"
+                        android:background="#aa979595" />
+
+                </TableLayout>
+
+            </android.support.design.widget.CoordinatorLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <ExpandableListView
+            android:id="@+id/team_detail_expandableListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:divider="@color/divider_light"
+            android:dividerHeight="1dp"
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

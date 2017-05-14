@@ -19,9 +19,8 @@
             <include layout="@layout/title" />
 
 
-
             <SearchView
-                android:id="@+id/search_view"
+                android:id="@+id/home_page_search_view"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@android:color/background_dark"
@@ -42,7 +41,17 @@
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+        <ProgressBar
+            android:id="@+id/prograessBar_loadmore"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:visibility="visible" />
+
 
     </android.support.design.widget.CoordinatorLayout>
 

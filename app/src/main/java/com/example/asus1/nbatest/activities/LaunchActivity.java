@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.asus1.nbatest.R;
+import com.example.asus1.nbatest.controller.MasterController;
 import com.example.asus1.nbatest.database.util.DatabaseCreater;
 
 import java.io.IOException;
@@ -53,7 +54,7 @@ public class LaunchActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LaunchActivity.this, FunctionActivity.class);
+                Intent intent = new Intent(LaunchActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -74,6 +75,7 @@ public class LaunchActivity extends AppCompatActivity {
                 DatabaseCreater databaseCreater = new DatabaseCreater(LaunchActivity.this);
                 try {
                     databaseCreater.createDatabase();
+                    MasterController.initData();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

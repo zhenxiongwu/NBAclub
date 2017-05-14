@@ -18,19 +18,20 @@ import java.util.List;
 
 public class Team extends DataSupport implements EntityModel {
 
-    private static String ID = "id";
-    private static String NAME = "name";
-    private static String LEAGEU = "league";
-    private static String SEASON = "season";
-    private static String COACHES = "coaches";
-    private static String FROM_YEAR = "fromYear";
-    private static String TO_YEAR = "toYear";
-    private static String YEARS = "years";
-    private static String GAMES = "games";
-    private static String WINS = "wins";
-    private static String LOSES = "loses";
-    private static String CHAMPIONSHIPS = "championships";
-    private static String ARENA_ID = "arenaId";
+    public static String ID = "id";
+    public static String NAME = "name";
+    public static String LEAGEU = "league";
+    public static String SEASON = "season";
+    public static String COACHES = "coaches";
+    public static String FROM_YEAR = "fromYear";
+    public static String TO_YEAR = "toYear";
+    public static String YEARS = "years";
+    public static String GAMES = "games";
+    public static String WINS = "wins";
+    public static String LOSES = "loses";
+    public static String VICTORY = "victory";
+    public static String CHAMPIONSHIPS = "championships";
+    public static String ARENA_ID = "arenaId";
 
 
     private int id;
@@ -44,6 +45,7 @@ public class Team extends DataSupport implements EntityModel {
     private int games;
     private int wins;
     private int loses;
+    private float victory;
     private int championships;
     private int arena_id;
     private List<Player> playerList = new ArrayList<>();
@@ -136,6 +138,10 @@ public class Team extends DataSupport implements EntityModel {
         this.loses = loses;
     }
 
+    public float getVictory(){
+        return (float)(Math.round(((float)wins)/games*10))/10;
+    }
+
     public int getChampionships() {
         return championships;
     }
@@ -184,6 +190,7 @@ public class Team extends DataSupport implements EntityModel {
             bundle.putInt(Team.GAMES, games);
             bundle.putInt(Team.WINS, wins);
             bundle.putInt(Team.LOSES, loses);
+            bundle.putFloat(Team.VICTORY,getVictory());
             bundle.putInt(Team.CHAMPIONSHIPS,championships);
             bundle.putInt(Team.ARENA_ID, arena_id);
         }

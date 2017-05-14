@@ -43,12 +43,19 @@ public class ExampleInstrumentedTest {
         assertEquals(Selector.selectTeamChampionships("San Antonio Spurs"),4);
         assertEquals(Selector.selectArenaTeam("OracleArena"),"Golden State Warriors");
 
-        List<Player> players = Selector.fuzzySelectPlayers("james");
-        assertTrue( players.size() > 0);
-//        int a = (int)(players.get(0).mapping().get(Player.POINTS));
-//        Log.i("zhenxiongwu","player 1 poiont is "+a);
+        List<Player> players = Selector.fuzzySelectPlayers("james",20,0);
+        assertTrue(players.size()>0);
         Log.i("zhenxiongwu","palyers size: "+players.size());
         for(Player player : players)
-            Log.i("zhenxiongwu","player name is "+player.getName());
+            Log.i("zhenxiongwu","player name is "+player.getName()+" games "+player.getGames()
+                    +" points " + player.getPoints()+
+                    " average is "+player.getAverage());
+
+        List<Player> players1 = Selector.selectPlayersInOrder(10,10);
+        assertEquals(players1.size(),10);
+
+        int allTeams = Selector.selectTeams().size();
+        assertTrue(allTeams>0);
+        Log.i("zhenxiongwu","Total of team "+allTeams);
     }
 }
